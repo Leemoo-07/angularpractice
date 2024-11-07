@@ -1,0 +1,49 @@
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 75vh;">
+    <div class="col-md-6">
+        <form class="form bg-light p-4 rounded" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="field mb-3">
+                <label class="label">Email</label>
+                <input type="text" class="form-control" formControlName="email" [class.is-invalid]="registerForm.get('email')?.invalid && 
+                                (registerForm.get('email')?.dirty || registerForm.get('email')?.touched)" />
+                <div *ngIf="registerForm.get('email')?.invalid && 
+                       (registerForm.get('email')?.dirty || registerForm.get('email')?.touched)"
+                    class="invalid-feedback">
+                    Email is required and should be valid.
+                </div>
+            </div>
+
+            <div class="field mb-3">
+                <label class="label">Username</label>
+                <input type="text" class="form-control" formControlName="username" [class.is-invalid]="registerForm.get('username')?.invalid && 
+                                (registerForm.get('username')?.dirty || registerForm.get('username')?.touched)" />
+                <div *ngIf="registerForm.get('username')?.invalid && 
+                       (registerForm.get('username')?.dirty || registerForm.get('username')?.touched)"
+                    class="invalid-feedback">
+                    Username is required.
+                </div>
+            </div>
+
+            <div class="field mb-3">
+                <label class="label">Password</label>
+                <input type="password" class="form-control" formControlName="password" [class.is-invalid]="registerForm.get('password')?.invalid && 
+                                (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)" />
+                <div *ngIf="registerForm.get('password')?.invalid && 
+                       (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)"
+                    class="invalid-feedback">
+                    Password is required and must be a valid.
+                </div>
+            </div>
+              <button 
+          type="submit" 
+          class="btn w-100" 
+          [class.btn-primary]="registerForm.valid" 
+          [class.btn-secondary]="!registerForm.valid" 
+          [disabled]="!registerForm.valid">
+          Register
+        </button>
+
+            <div>
+            </div>
+        </form>
+    </div>
+</div>

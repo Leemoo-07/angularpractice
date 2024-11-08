@@ -10,6 +10,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent {
+  isNavbarOpen=false;
   registerForm: FormGroup; 
 
   constructor(private fb: FormBuilder) {
@@ -21,7 +22,9 @@ export class AboutComponent {
     });
   }
 
-  toggleNavbar: any;
+  toggleNavbar(){
+    this.isNavbarOpen = !this.isNavbarOpen;
+  }
 
   onSubmit(): void {
     console.log(
